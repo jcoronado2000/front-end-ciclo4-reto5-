@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinado Zona</title>
+    <link rel="stylesheet" href="../../index.css">
+    <link rel="shortcut icon" href="../../img/Púrpura Rectángulos Despacho Jurídico Logo.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+</head>
+
+
+
+<body>
+    <!-- Modal Ver foto-->
+    <div class="modal fade" id="verFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Foto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img class="card-img-top" id="imagenModal" src="" alt="Card image cap">
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div>
+            <img src="../../img/Púrpura Rectángulos Despacho Jurídico Logo.png"
+                style="width: 74px; border: 1px;border-radius: 13px;">
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href="index.html">Orden Pedido</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="#">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="../cumpleaños/cumpleaños.html">Cumpleaños</a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item">Cambiar contraseña</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" id="cerrarSesion">Cerrar Cesión</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div>
+                        <div style="margin-right: 5px;">
+                            <h4 id="idUserLogin"></h4>
+                            <p id="idUserCargo"></p>
+                        </div>
+            </form>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid animate__animated animate__bounceIn">
+        <div class="row">
+            <div class="col-md-4" id="accordion" style="margin-top: 30px;">
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Consultar Productos
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <label class="form-label">Lista de productos de toda la compañia</label>
+                            <div class="row">
+                                <button type="button" class="btn btn-success" style="margin-left: 10px;" onclick="consultaAllProducts()">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                                Consultar Productos Por Descripción
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <label class="form-label">Descripción a buscar</label>
+                            <div class="row">
+                                <input type="text" class="form-control" id="buscarPorDescripcion"
+                                    style="width: 50%; margin-left: 13px;">
+                                <button type="button" class="btn btn-success" style="margin-left: 10px;"
+                                    onclick="dataPorDescripcion()">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                Consultar Productos Por Precio
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <label class="form-label">Precio igual o menor</label>
+                            <div class="row">
+                                <input type="text" class="form-control" id="buscarPorPrecio"
+                                    style="width: 50%; margin-left: 13px;">
+                                <button type="button" class="btn btn-success" style="margin-left: 10px;" onclick="dataPooPrecio()">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 tablaProductos"
+                style="padding: 3%; border: 1px; border-radius: 15px; background:#f7f7f7; float: right; margin-top: 30px;">
+                <h2 style="text-align: center;">Productos</h1>
+                    <div class="table-responsive">
+                        <table class="table-sm" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">Referencia</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Objetivo</th>
+                                    <th scope="col">Descripcion</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Foto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="retornarTablaProductos">
+
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- DATATABLES -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <script src="productos.js"></script>
+</body>
+
+</html>
