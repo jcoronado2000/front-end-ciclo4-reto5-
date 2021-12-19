@@ -1,7 +1,8 @@
 /**
  * Constantes y endpoints
  */
-const endPointSupplements = "http://localhost:8080/api/supplements";
+const endPointSupplements = "http://150.230.88.187:8080/api/supplements";
+//const endPointSupplements = "http://localhost:8080/api/supplements";
 let userJson = sessionStorage.getItem("user");
 let userJs;
 

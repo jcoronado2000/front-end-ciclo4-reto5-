@@ -4,7 +4,8 @@
 /**
  * Constantes y endpoints
  */
-const endPointUserCumpleanos = "http://localhost:8080/api/user/birthday/";
+const endPointUserCumpleanos = "http://150.230.88.187:8080/api/user/birthday/";
+//const endPointUserCumpleanos = "http://localhost:8080/api/user/birthday/";
 let userJson = sessionStorage.getItem("user");
 let userJs;
 /**

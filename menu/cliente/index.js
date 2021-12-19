@@ -1,7 +1,8 @@
 /**
  * Constantes y variables
  */
-const endPointSupplements = "http://localhost:8080/api/supplements";
+//const endPointSupplements = "http://localhost:8080/api/supplements";
+const endPointSupplements = "http://150.230.88.187:8080/api/supplements";
 /**
  * Consulta total productos
  */
